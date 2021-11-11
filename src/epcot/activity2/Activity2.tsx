@@ -52,7 +52,7 @@ function Activity2() {
       {data.map(( listValue, index ) => {
           return (
             <tr className="" key={index}>
-              <td> <button >{listValue.id}</button>  </td>
+              <td> <button onClick={() => changeItem(listValue.id)}>{listValue.id}</button>  </td>
               <td>{listValue.name}</td>
               <td>{listValue.description}</td>
               <td>{listValue.quantity}</td>
