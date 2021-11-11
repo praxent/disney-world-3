@@ -17,6 +17,8 @@ const Styles = styled.div`
     background-color: white; 
     color: black; 
     border: 2px solid #008CBA;
+    margin:5px;
+    padding:5px;
   }
 
   .buttonMenu:hover {

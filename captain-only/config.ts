@@ -23,5 +23,10 @@ export const CONFIG = {
     MAGIC_KINGDOM_A1: "/magic-kingdom/activity1",
     MAGIC_KINGDOM_A2: "/magic-kingdom/activity2",
     MAGIC_KINGDOM_A3: "/magic-kingdom/activity3",
+
+    LION_A3: "/animal-kingdom/activity3/lion",
+    ZEBRA_A3: "/animal-kingdom/activity3/zebra",
+    GIRAFFE_A3: "/animal-kingdom/activity3/giraffe",
+    CHIMPANZEE_A3: "/animal-kingdom/activity3/chimpanzee",
   }
 };

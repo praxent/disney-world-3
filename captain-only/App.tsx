@@ -11,6 +11,11 @@ import {default as AnimalKingdomActivity1} from "../src/animal-kingdom/activity1
 import {default as AnimalKingdomActivity2} from "../src/animal-kingdom/activity2/Activity2";
 import {default as AnimalKingdomActivity3} from "../src/animal-kingdom/activity3/Activity3";
 
+import {default as Lion} from "../src/animal-kingdom/activity3/lion";
+import {default as Zebra} from "../src/animal-kingdom/activity3/zebra";
+import {default as Giraffe} from "../src/animal-kingdom/activity3/giraffe";
+import {default as Chimpanzee} from "../src/animal-kingdom/activity3/chimpanzee";
+
 import BlizzardBeach from ".//BlizzardBeach";
 import {default as BlizzardBeachActivity1} from "../src/blizzard-beach/activity1/Activity1";
 import {default as BlizzardBeachActivity2} from "../src/blizzard-beach/activity2/Activity2";
@@ -38,6 +43,11 @@ function App() {
         <Route path={CONFIG.ROUTE.ANIMAL_KINGDOM_A1} element={<AnimalKingdomActivity1/>}/>
         <Route path={CONFIG.ROUTE.ANIMAL_KINGDOM_A2} element={<AnimalKingdomActivity2/>}/>
         <Route path={CONFIG.ROUTE.ANIMAL_KINGDOM_A3} element={<AnimalKingdomActivity3/>}/>
+
+        <Route path={CONFIG.ROUTE.LION_A3} element={<Lion/>}/>
+        <Route path={CONFIG.ROUTE.ZEBRA_A3} element={<Zebra/>}/>
+        <Route path={CONFIG.ROUTE.GIRAFFE_A3} element={<Giraffe/>}/>
+        <Route path={CONFIG.ROUTE.CHIMPANZEE_A3} element={<Chimpanzee/>}/>
 
         <Route path={CONFIG.ROUTE.BLIZZARD_BEACH} element={<BlizzardBeach/>}/>
         <Route path={CONFIG.ROUTE.BLIZZARD_BEACH_A1} element={<BlizzardBeachActivity1/>}/>
