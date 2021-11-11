@@ -2,7 +2,6 @@ import React,{useState} from 'react';
 import styled from "styled-components";
 import image from './boat.png'
 
-import Riding from './Riding'
 
 const Styles = styled.div`
   color: red;
@@ -17,24 +16,23 @@ const Styles = styled.div`
   }
 `;
 
-
-
-function Activity1() {
-
-const [ riding, setRiding ] = useState(true);
+function Riding(props) {
+  	    
+		console.log(props.shows);
 
   return (
+  
     <Styles>
-      <div className="container">
-	  
-       Ride Boat
-	   	   
-	   <Riding shows={riding}/>
-	   		   			   			   			
-      </div>	  
+      
+	  {props.shows
+	  ?
+		<img src={image} alt="Boat" className="border"  />
+	  :
+	  <img src={image} alt="Boat" />
+	  }	  
     </Styles>
   )
-    
+   
 }
 
-export default Activity1
+export default Riding

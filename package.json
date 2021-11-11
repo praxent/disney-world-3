@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "mockserver": "json-server --watch captain-only/db.json --port=4000"
+    "mockserver": "json-server --watch captain-only/db.json --port=5000"
   },
   "dependencies": {
     "json-server": "^0.17.0",
