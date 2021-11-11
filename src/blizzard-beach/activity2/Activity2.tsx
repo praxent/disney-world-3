@@ -16,18 +16,24 @@ function Activity2() {
   const [menuArray, setData] = useState([]);
 
   function buyAction(item){    
+    // var currentItem = menuArray.filter(x=> x.id === item.id)[0];
+    // currentItem.quantity = currentItem.quantity -1;
+    // setData(menuArray);
 
-    // menuArray.map(
-    //   row => {
-    //     if (row.id === item.id){
-    //       row.quantity = item.quantity -1;
-    //     }
-    //   }
-    // )
-    var currentItem = menuArray.filter(x=> x.id === item.id)[0];
-    currentItem.quantity = currentItem.quantity -1;
-    setData(menuArray);
+
+    let updatedMenu = menuArray.map((menuItem) => {
+      if (menuItem.id === item.id) {
+          return { ...menuItem, quantity: item.quantity - 1 }
+      }
+      
+      return menuItem
+  })
+  
+  setData(updatedMenu)
+
+
   }
+
   useEffect(() => {
     fetch('http://localhost:4000/lottawatta_lodge')
     .then(response => response.json())
@@ -60,7 +66,7 @@ function Activity2() {
                 return (
                   <tr key={item.id}>
                     <td>
-                      <input type='button' value='BUY' onClick={() => buyAction(item)}/>
+                    { item.quantity > 0 ? <input type='button' value='BUY' onClick={() => buyAction(item)}/> : <span>Sold out</span> }
                       </td>
                     <td>{ item.name }</td>
                     <td className='descriptionColumn'>{ item.description }</td>
