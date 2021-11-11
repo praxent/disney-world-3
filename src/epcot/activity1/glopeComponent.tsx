@@ -8,7 +8,7 @@ function GlobeComponent(props) {
     let globe;
 
     if (props.riding){
-        globe = <div style={{height: "200px"}}><img src={globeGif} style={{height:"200px"}}/></div>
+        globe = <div style={{marginLeft:"1040px"}}><img src={globeGif} style={{height:"200px", marginTop:"180px"}}/></div>
     }
 
     return (
