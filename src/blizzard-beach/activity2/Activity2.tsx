@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from "styled-components";
-import lottawattaLodge from "../images/Lottawatta-Lodge.jpg"
+import lottawattaLodge from "../images/Lottawatta-Lodge.jpg";
+import {UserContext} from '../../../captain-only/context';
 
 const Styles = styled.div`
   .flex-row-activity2 {
@@ -70,13 +71,19 @@ const Styles = styled.div`
 
 function Activity2() {
   const [menuArray, setData] = useState([]);
+  const initialValue = { id: 0, name: "", description:"", type:"", quantity:0 };
+  const [menu, setMenu] = useState([initialValue]);
+
+  const context = useContext(UserContext);
+  
+  const {store} = context;
+
+  const {userType} = store;
+
+  console.log(userType);
+
 
   function buyAction(item){    
-    // var currentItem = menuArray.filter(x=> x.id === item.id)[0];
-    // currentItem.quantity = currentItem.quantity -1;
-    // setData(menuArray);
-
-
     let updatedMenu = menuArray.map((menuItem) => {
       if (menuItem.id === item.id) {
           return { ...menuItem, quantity: item.quantity - 1 }
@@ -121,13 +128,16 @@ function Activity2() {
               {menuArray.map(item => {
                 return (
                   <tr key={item.id}>
-                    <td>
-                    { item.quantity > 0 ? <input type='button' value='BUY' onClick={() => buyAction(item)}/> : <span>Sold out</span> }
-                      </td>
+                    {(item.type === 'Adult' || item.type === 'Child') && userType === 'Adult' ? (
+                    <td>{item.quantity > 0 ? <button className="buttonMenu" onClick={() => buyAction(item)}>Buy</button> : ''}</td>
+                     ) : (
+                    <td>{item.quantity > 0 && item.type === 'Child' ? <button className="buttonMenu" onClick={() => buyAction(item)}>Buy</button> : ''}</td>
+                     )}
                     <td>{ item.name }</td>
                     <td className='descriptionColumn'>{ item.description }</td>
                     <td>{ item.type }</td>
                     <td>{ item.quantity }</td>
+                    
                   </tr>
                 );
               })}
