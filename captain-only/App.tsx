@@ -52,7 +52,7 @@ function App() {
         <Route path={CONFIG.ROUTE.MAGIC_KINGDOM} element={<MagicKingdom/>}/>
         <Route path={CONFIG.ROUTE.MAGIC_KINGDOM_A1} element={<MagicKingdomActivity1/>}/>
         <Route path={CONFIG.ROUTE.MAGIC_KINGDOM_A2} element={<MagicKingdomActivity2/>}/>
-        <Route path={CONFIG.ROUTE.MAGIC_KINGDOM_A3} element={<MagicKingdomActivity3/>}/>
+        <Route path={CONFIG.ROUTE.MAGIC_KINGDOM_A3} element={<MagicKingdomActivity3/>}/>		
 
         <Route path={CONFIG.ROUTE.ANY} element={<DisneyWorld/>}/>
       </Routes>
