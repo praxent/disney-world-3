@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from "styled-components";
+
+import spaceImg from "./resources/image/spaceshipearth.jpeg";
+
+import GlobeComponent from './glopeComponent';
 
 const Styles = styled.div`
   color: red;
@@ -10,13 +14,17 @@ const Styles = styled.div`
   }
 `;
 
+
+
 function Activity1() {
+
+  const [riding, setRiding] = useState(true);
+
   return (
-    <Styles>
-      <div className="container">
-        Hello from Activity 1 Epcot
-      </div>
-    </Styles>
+
+    <GlobeComponent riding={riding} />
+
+    
   )
 }
 
