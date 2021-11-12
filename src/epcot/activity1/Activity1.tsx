@@ -5,6 +5,8 @@ import spaceImg from "./resources/image/spaceshipearth.jpeg";
 
 import GlobeComponent from './glopeComponent';
 
+
+
 const Styles = styled.div`
   color: red;
   
@@ -21,7 +23,7 @@ function Activity1() {
   const [riding, setRiding] = useState(true);
 
   return (
-
+  
     <GlobeComponent riding={riding} />
 
     
