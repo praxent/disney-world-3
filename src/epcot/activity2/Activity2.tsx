@@ -22,8 +22,8 @@ function Activity2() {
   const [refreshKey, setRefreshKey] = useState(0);
 
   const context = useContext(UserContext);
-  
-  console.log(context);
+  const {store} = context;
+  const {userType} = store;
 
   useEffect(() => {
     function getData(){
@@ -50,10 +50,14 @@ function Activity2() {
   }
 
   const renderBody = () => {
-    return data && data.map(({ id, name, description, quantity }) => {
+    return data && data.map(({ id, name, description, quantity, type }) => {
         return (
             <tr key={id}>
-                <td> <button onClick={() => changeItem(id)}>{id}</button>  </td>
+                {(type === 'Adult' || type === 'Child') && userType === 'Adult' ? (
+                  <td>{quantity > 0 ? <button onClick={() => changeItem(id)}>Buy</button> : ''}</td>
+                ) : (
+                  <td>{quantity > 0 && type === 'Child' ? <button className="buttonMenu" onClick={() => changeItem(id)}>Buy</button> : ''}</td>
+                )}
                 <td>{name}</td>
                 <td>{description}</td>
                 <td>{quantity}</td>

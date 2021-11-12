@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {  
   Routes,
   Route,
@@ -17,7 +17,7 @@ import marsaudio from './resources/audio/marsaudio.mp3';
 import jupiteraudio from './resources/audio/jupiteraudio.mp3';
 import saturnsaudio from './resources/audio/saturnaudio.mp3';
 
-
+import {UserContext} from '../../../captain-only/context';
 
 const Styles = styled.div`
   color: green;
@@ -54,6 +54,10 @@ function Layout() {
   stopAllAudios();
   audio.play();
 
+  const context = useContext(UserContext);
+  const {store} = context;
+  const {userType} = store;
+
   return (
 
     <div style={{backgroundPosition: 'center', textAlign: 'center'}}>
@@ -71,9 +75,9 @@ function Layout() {
         <Link to="jupiter"><button type="button">
           Jupiter
      </button></Link> {" "}
-        <Link to="saturn"><button type="button">
-          Saturn
-     </button></Link>{" "}
+     {userType === 'Adult'
+          ? (<Link to="saturn"><button type="button">Saturn</button></Link>)  
+          : ReturnBase()}
      <Link to=""><button type="button" onClick={()=> ReturnBase()}>
           Return Base
      </button></Link>
