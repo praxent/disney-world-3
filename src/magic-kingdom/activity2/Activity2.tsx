@@ -1,6 +1,10 @@
-import React,{useState,useEffect } from 'react';
+import React,{useState,useEffect , useContext} from 'react';
 import styled from "styled-components";
 import image from "./tabern.png"
+
+import {UserContext} from '../../../captain-only/context';
+
+
 
 const Styles = styled.div`
   color: blue;
@@ -24,6 +28,14 @@ function Activity2() {
   const initialValue = { id: 0, name: "", description:"", type:"", quantity:0 };
   const [menu, setMenu] = useState([initialValue]);
   
+  const context = useContext(UserContext);
+  
+  const {store} = context;
+
+  const {userType} = store;
+
+  console.log(userType);
+
   const sellItem = (id: number) => {
     let updatedMenu = menu.map(item => 
       {
@@ -68,7 +80,13 @@ useEffect(() => {
                     <td >{ item.description }</td>
                     <td>{ item.type }</td>
                     <td>{item.quantity}</td>
-                    <td>{item.quantity > 0 ? <button className="buttonMenu" onClick={() => sellItem(item.id)}>Sell</button> : ''}</td>
+                    {(item.type === 'Adult' || item.type === 'Child') && userType === 'Adult' ? (
+                          <td>{item.quantity > 0 ? <button className="buttonMenu" onClick={() => sellItem(item.id)}>Sell</button> : ''}</td>
+                        ) : (
+                          <td>{item.quantity > 0 && item.type === 'Child' ? <button className="buttonMenu" onClick={() => sellItem(item.id)}>Sell</button> : ''}</td>
+                        )}
+                   
+                    
                   </tr>
                 );
               })}
