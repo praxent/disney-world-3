@@ -12,7 +12,7 @@ export const CONFIG = {
     BLIZZARD_BEACH: "/blizzard-beach",
     BLIZZARD_BEACH_A1: "/blizzard-beach/activity1",
     BLIZZARD_BEACH_A2: "/blizzard-beach/activity2",
-    BLIZZARD_BEACH_A3: "/blizzard-beach/activity3",
+    BLIZZARD_BEACH_A3: "/blizzard-beach/activity3/*",
 
     EPCOT: "/epcot",
     EPCOT_A1: "/epcot/activity1",
