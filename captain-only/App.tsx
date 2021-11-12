@@ -32,6 +32,7 @@ import {default as MagicKingdomActivity2} from "../src/magic-kingdom/activity2/A
 import {default as MagicKingdomActivity3} from "../src/magic-kingdom/activity3/Activity3";
 import {default as Outlet} from "../src/magic-kingdom/activity3/Outlet";
 
+
 function App() {
 
   return (
@@ -65,7 +66,7 @@ function App() {
         <Route path={CONFIG.ROUTE.MAGIC_KINGDOM_A2} element={<MagicKingdomActivity2/>}/>
         <Route path={CONFIG.ROUTE.MAGIC_KINGDOM_A3} element={<MagicKingdomActivity3/>}/>		
 		
-		<Route path={CONFIG.ROUTE.MAGIC_KINGDOM_Dark} element={<Outlet spellProp="Dark"/>}/>		
+		
 
         <Route path={CONFIG.ROUTE.ANY} element={<DisneyWorld/>}/>
       </Routes>

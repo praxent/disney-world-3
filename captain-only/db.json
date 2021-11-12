@@ -146,5 +146,10 @@
       "type": "Adult",
       "quantity": 6
     }
-  ]
+  ],
+  "Wallets":[
+      {
+        "Park":"Magic Kingdown",
+        "credits":20  
+    }]
 }

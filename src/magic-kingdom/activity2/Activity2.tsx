@@ -12,7 +12,6 @@ const Styles = styled.div`
 `;
 
 
-
 function Activity2() {
 
 const [ data, setData ]=useState([]);
