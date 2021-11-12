@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from "styled-components";
 import background from './images/rainForestCafe.png';
+
+import {UserContext} from '../../../captain-only/context';
 
 const Styles = styled.div`
   color: black;
@@ -50,6 +52,14 @@ const Styles = styled.div`
 function Activity2() {
   const initialValue = { id: 0, name: "", description:"", type:"", quantity:0 };
   const [menu, setMenu] = useState([initialValue]);
+
+  const context = useContext(UserContext);
+  
+  const {store} = context;
+
+  const {userType} = store;
+
+  console.log(userType);
   
   const sellItem = (id: number) => {
     let updatedMenu = menu.map(item => 
@@ -94,7 +104,13 @@ function Activity2() {
                       <td>{item.description}</td>
                       <td>{item.type}</td>
                       <td>{item.quantity}</td>
-                      <td>{item.quantity > 0 ? <button className="buttonMenu" onClick={() => sellItem(item.id)}>Sell</button> : ''}</td>
+                      {(item.type === 'Adult' || item.type === 'Child') && userType === 'Adult' ? (
+                          <td>{item.quantity > 0 ? <button className="buttonMenu" onClick={() => sellItem(item.id)}>Sell</button> : ''}</td>
+                        ) : (
+                          <td>{item.quantity > 0 && item.type === 'Child' ? <button className="buttonMenu" onClick={() => sellItem(item.id)}>Sell</button> : ''}</td>
+                        )}
+
+      
                   </tr>
                 ))
             }
