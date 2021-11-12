@@ -64,7 +64,7 @@ function Activity2() {
   }
 
   useEffect(() => {
-    fetch('http://localhost:4000/rainforest_cafe')
+    fetch('http://localhost:5000/rainforest_cafe')
         .then(response => response.json())
         .then(data => setMenu(data));
   }, []);

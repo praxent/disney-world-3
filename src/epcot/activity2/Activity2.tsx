@@ -21,15 +21,15 @@ function Activity2() {
 
   useEffect(() => {
     function getData(){
-      fetch("http://localhost:4000/space_220")
+      fetch("http://localhost:5000/space_220")
       .then(response => response.json())
       .then(res => setData(res));
     }
     getData();
   }, [refreshKey])
 
-  function changeItem(id) {
- 
+  function changeItem(id: number) {
+
     var items = data;
 
     var item = items.filter(item => item.id === id);
@@ -57,26 +57,18 @@ function Activity2() {
 }
 
   return (
-    <div style={{ backgroundImage: `url(${restaurantImg})`, height:"1200px", width:"2000px" } }>
-         
+    <div style={{ backgroundImage: `url(${restaurantImg})`, height:"1200px", width:"2000px" }}>
+      <div className="form-box">
+        <div className="header-text">
+          Restaurant
+        </div>
 
-    <div className="form-box">
-      <div className="header-text">
-        Restaurant
+        <table>
+          <tbody>
+            {renderBody()}
+          </tbody>
+        </table>
       </div>
-
-      <table >
-      <tbody>
-          {renderBody()}
-      </tbody>
-      </table>
-      
-
-
-
-
-	  </div>
-
     </div>
   )
 }

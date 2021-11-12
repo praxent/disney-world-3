@@ -91,7 +91,7 @@ function Activity2() {
   }
 
   useEffect(() => {
-    fetch('http://localhost:4000/lottawatta_lodge')
+    fetch('http://localhost:5000/lottawatta_lodge')
     .then(response => response.json())
     .then(data => {
       console.log(data);
