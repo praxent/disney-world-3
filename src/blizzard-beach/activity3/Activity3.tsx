@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from "styled-components";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import securityCameras from "./images/security-cameras.jpg";
@@ -6,7 +6,9 @@ import CrossCountryCreekImg from "./images/Cross-Country-Creek.jpg";
 import MeltAwayBayImg from "./images/Melt-Away-Bay.jpg";
 import RunoffRapidsImg from "./images/Runoff-Rapids.jpg";
 import SnowStormersImg from "./images/Snow-Stormers.jpg";
+import DialogBoxChild from "./images/dialog-box-child-f.png";
 
+import {UserContext} from '../../../captain-only/context';
 
 const Styles = styled.div`
   .btn {
@@ -79,6 +81,16 @@ const Styles = styled.div`
     height: 450px;
     margin-left: 20px;
   }
+  .dialogBox{
+    left: 12%;
+    top: -433px;
+    position: relative;
+    z-index: 2;
+
+    width: 350px;
+    height: 350px;
+  }
+
 `;
 
 
@@ -121,6 +133,14 @@ function Team() {
 }
 
 function Activity3() {
+  const initialValue = { id: 0, name: "", description:"", type:"", quantity:0 };
+  const [menu, setMenu] = useState([initialValue]);
+
+  const context = useContext(UserContext);
+  
+  const {store} = context;
+
+  const {userType} = store;
 
   return (
     <Styles>
@@ -129,6 +149,8 @@ function Activity3() {
       <div className=".flex-row-activity3">
         <div className="map-container3">
           <img src={securityCameras} className="map3"/>
+         
+
           <div className='crossCountryCreek'>
             <Link to="crossCountryCreek" className=''> 
             <button type="button" className='btn ' >
@@ -153,7 +175,10 @@ function Activity3() {
               Snow Stormers
             </button></Link>{" "}
           </div>
-            
+          {userType === 'Child' ? <div className=''>
+          <img src={DialogBoxChild} className="dialogBox"/>
+          </div> : null}
+          
               <Outlet />
           </div>
         </div>
