@@ -1,14 +1,70 @@
-import './Activity2.css'
 import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import lottawattaLodge from "../images/Lottawatta-Lodge.jpg"
 
 const Styles = styled.div`
-  color: blue;
+  .flex-row-activity2 {
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+  }
   
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
+  .map-container {
+    position: relative;
+    height: 850px;
+  }
+  
+  .map {
+    position: relative;
+    /* height: 100%; */
+    pointer-events: none;
+    width: 60%;
+    height: 850px;
+  }
+  
+  .productTable {
+    position: relative;
+    z-index: 2;
+    /* background: rgb(23 60 103); */
+    color: black;
+    font-size: 12px;
+    border-color: black;
+    border-radius: 2px;
+  
+  }
+  
+  .tablePosition {
+    left: 1160px;
+    top: -820px;
+  }
+  
+  tbody {
+    box-shadow: 0 0 0 2px black;
+    border-radius: 10px;
+  }
+  
+  table tbody td {
+    border: 1px solid black;
+    text-align: center;
+  }
+  
+  table tbody tr:first-child td {
+    border-top: none;
+    border-right: none;
+  }
+  
+  table tbody tr:last-child td {
+    border-bottom: none;
+    border-right: none;
+  }
+  
+  table tbody tr td:first-child {
+    border-left: none;
+  }
+  
+  .descriptionColumn {
+    width: 400px;
+  
   }
 `;
 
