@@ -1,9 +1,10 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import styled from "styled-components";
 import imageFire from './fire.png'
 import imageDark from './dark.png'
 import imageWater from './Water.png'
 import imageLightning from './lightning.png'
+import {UserContext} from '../../../captain-only/context';
 
 
 const Styles = styled.div`
@@ -21,16 +22,31 @@ const Styles = styled.div`
   .wand:hover{
 	cursor:grab;
   }
+
+  .danger{
+		font-size: 2em !important;
+		color: red !important;
+  }
   
 `;
 
 function Outlet(props) {
-  	    
+  
+	
+
   const [hovered, setHovered] = useState(false);
 
   const toggleHover = () => setHovered(!hovered);
 
-		
+  const context = useContext(UserContext);
+  
+  const {store} = context;
+
+  const {userType} = store;
+
+  console.log(userType);	
+  
+
 		//console.log(props.spellProp);
 		if( props.spellProp=="Fire" ){
 			return <img src={imageFire}
@@ -54,10 +70,14 @@ function Outlet(props) {
 			onMouseLeave={toggleHover}/>
 		}
 		
-		if( props.spellProp=="Lightning" ){
+		if( props.spellProp=="Lightning" && userType=="Adult" ){
 			return <img src={imageLightning}  className={hovered ? 'pulse animated' : ''}
 			onMouseEnter={toggleHover}
 			onMouseLeave={toggleHover}/>
+		}
+		else{
+			return <span className="danger">CHILD NOT ALLOWED</span>
+
 		}
 		
 		
