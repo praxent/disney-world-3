@@ -1,4 +1,3 @@
-import './Activity3.css';
 import React from 'react';
 import styled from "styled-components";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
@@ -10,11 +9,75 @@ import SnowStormersImg from "./images/Snow-Stormers.jpg";
 
 
 const Styles = styled.div`
-  color: Grey;
+  .btn {
+    color: #050;
+    font: bold 84% 'trebuchet ms', helvetica, sans-serif;
+    background-color: #fed;
+    border: 1px solid;
+    border-color: #696 #363 #363 #696;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 11%;
+    height: 100px;
+  }
   
-  .container {
-    
-    margin: 0 auto;
+  
+  .flex-row-activity3 {
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+  }
+  
+  .map-container3 {
+    position: relative;
+    height: 400px;
+  }
+  
+  .map3 {
+    position: relative;
+    /* height: 100%; */
+    pointer-events: none;
+    width: 40%;
+    height: 350px;
+  }
+  
+  .crossCountryCreek {
+    left: 2%;
+    top: -333px;
+    position: relative;
+    z-index: 2;
+    padding: 10px 15px;
+  }
+  
+  .meltAwayBay {
+    left: 2%;
+    top: -342px;
+    position: relative;
+    z-index: 2;
+    padding: 10px 15px;
+  }
+  
+  .runoffRapids {
+    left: 26%;
+    top: -572px;
+    position: relative;
+    z-index: 2;
+    padding: 10px 15px;
+  }
+  
+  .snowStormers {
+    left: 26%;
+    top: -572px;
+    position: relative;
+    z-index: 2;
+    padding: 10px 15px;
+  }
+  
+  .imgcontainer {
+    width: 450px;
+    height: 450px;
+    margin-left: 20px;
   }
 `;
 
