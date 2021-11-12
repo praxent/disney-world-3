@@ -21,7 +21,7 @@ const Styles = styled.div`
 
 function Activity1() {
 
-const [ riding, setRiding ] = useState(true);
+const [ riding, setRiding ] = useState(false);
 
   return (
     <Styles>
@@ -30,6 +30,11 @@ const [ riding, setRiding ] = useState(true);
        Ride Boat
 	   	   
 	   <Riding shows={riding}/>
+	   
+	   <br/><br/>
+	   <button onClick={() =>  setRiding(true) }>Hit</button> 
+	   
+	   <button onClick={() =>  setRiding(false) }>Clear</button> 
 	   		   			   			   			
       </div>	  
     </Styles>
