@@ -17,7 +17,7 @@ export const CONFIG = {
     EPCOT: "/epcot",
     EPCOT_A1: "/epcot/activity1",
     EPCOT_A2: "/epcot/activity2",
-    EPCOT_A3: "/epcot/activity3",
+    EPCOT_A3: "/epcot/activity3/*",
 
     MAGIC_KINGDOM: "/magic-kingdom",
     MAGIC_KINGDOM_A1: "/magic-kingdom/activity1",
