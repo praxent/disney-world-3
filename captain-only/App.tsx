@@ -30,11 +30,17 @@ import {default as Zebra} from "../src/animal-kingdom/activity3/zebra";
 import {default as Giraffe} from "../src/animal-kingdom/activity3/giraffe";
 import {default as Chimpanzee} from "../src/animal-kingdom/activity3/chimpanzee";
 
+import UserToogle from './UserToogle';
+
 function App() {
 
   return (
     <>
       <Instructions />
+
+      <UserToogle />
+
+
       <Routes>
         <Route path={CONFIG.ROUTE.ROOT} element={<DisneyWorld/>}/>
 

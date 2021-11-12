@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from "styled-components";
 import './resources/styles/pagestyle.css';
 
 import restaurantImg from './resources/image/restaurantimg.jpeg';
+
+import {UserContext} from '../../../captain-only/context';
 
 const Styles = styled.div`
   color: blue;
@@ -18,6 +20,10 @@ const Styles = styled.div`
 function Activity2() {
   const [data, setData]  = useState([]);
   const [refreshKey, setRefreshKey] = useState(0);
+
+  const context = useContext(UserContext);
+  
+  console.log(context);
 
   useEffect(() => {
     function getData(){
