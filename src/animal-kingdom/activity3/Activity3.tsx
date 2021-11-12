@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+
+import {UserContext} from '../../../captain-only/context';
 
 const Styles = styled.div`
   color: black;
@@ -35,12 +37,19 @@ const Styles = styled.div`
 `;
 
 function Activity3() {
+
+  const context = useContext(UserContext);
+  
+  const {store} = context;
+
+  const {userType} = store;
+
   return (
     <Styles>
       <div className="container">
         <h1>Walking around the Zoo</h1>
         <nav>
-          <Link className="buttonMenu" to="Lion">Visit Lion</Link>
+          {userType === 'Adult' ? <Link className="buttonMenu" to="Lion">Visit Lion</Link>  : null}
           <Link className="buttonMenu" to="Zebra">Visit Zebra</Link>
           <Link className="buttonMenu" to="Giraffe">Visit Giraffe</Link>
           <Link className="buttonMenu" to="Chimpanzee">Visit Chimpanzee</Link>
