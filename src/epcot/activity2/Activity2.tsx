@@ -27,7 +27,7 @@ function Activity2() {
 
   useEffect(() => {
     function getData(){
-      fetch("http://localhost:5000/space_220")
+      fetch("http://localhost:4000/space_220")
       .then(response => response.json())
       .then(res => setData(res));
     }

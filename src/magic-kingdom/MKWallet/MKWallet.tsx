@@ -33,7 +33,7 @@ function MKWallet() {
   const [money, setMoney] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/wallets")
+    fetch("http://localhost:4000/wallets")
       .then(response => response.json())
       .then(res => setMoney(res));
   }, [])

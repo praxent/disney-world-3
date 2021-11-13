@@ -49,7 +49,7 @@ function Activity2() {
   }
 
 useEffect(() => {
-  fetch('http://localhost:5000/liberty_tree')
+  fetch('http://localhost:4000/liberty_tree')
       .then(response => response.json())
       .then(data => setMenu(data));
 }, []);
